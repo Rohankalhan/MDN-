@@ -31,4 +31,54 @@ render.experimental.xml
 google-services.json
 
 # Android Profiling
-*.hprof
+*.hprof<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional YouTube Channel</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Professional YouTube Channel</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#videos">Videos</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero">
+    <h2>Learn AI, Technology & Content Creation</h2>
+    <p>Discover the latest AI tools, tech updates, and YouTube growth strategies.</p>
+    <a href="#" class="btn">Subscribe Now</a>
+</section>
+
+<section class="features">
+    <div class="card">
+        <h3>AI Tools</h3>
+        <p>Explore trending AI tools and automation platforms.</p>
+    </div>
+
+    <div class="card">
+        <h3>YouTube Growth</h3>
+        <p>Learn how to grow your audience and improve engagement.</p>
+    </div>
+
+    <div class="card">
+        <h3>Tech News</h3>
+        <p>Stay updated with the latest technology developments.</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Professional YouTube Channel. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
