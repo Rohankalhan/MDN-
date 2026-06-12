@@ -7,7 +7,33 @@
 │   └── result.txt
 └── README.mdname: Full YouTube AI Agent
 
+on:name: YouTube AI Automation Agent
+
 on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install openai requests
+
+      - name: Run AI Agent
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python agent.py
   schedule:
     - cron: "0 8 * * *"
   workflow_dispatch:
