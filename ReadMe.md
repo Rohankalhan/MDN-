@@ -1,6 +1,87 @@
-# 💫 About Me:
-Welcome to my YouTube channel 
+# 💫 About Me:youtube-ai-agent/
+│
+├── .github/workflows/youtube.yml
+├── agent.py
+├── config.py
+├── output/
+│   └── result.txt
+└── README.mdname: Full YouTube AI Agent
 
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: pip install openai requests
+
+      - name: Run AI Agent
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python agent.pyimport openai
+import os
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+prompt = """
+You are a professional YouTube growth AI expert.
+
+Generate:
+
+1. Viral video idea (Emotional / Love / Motivation / Story)
+2. Full short video script (60 seconds, Hindi + English mix)
+3. Catchy viral title (clickbait style)
+4. SEO description
+5. 10 trending hashtags
+6. Thumbnail idea (text + visual description)
+7. Upload timing suggestion
+
+Make it highly viral and emotional.
+"""
+
+response = openai.ChatCompletion.create(
+    model="gpt-4o-mini",
+    messages=[{"role": "user", "content": prompt}]
+)
+
+result = response["choices"][0]["message"]["content"]
+
+os.makedirs("output", exist_ok=True)
+
+with open("output/result.txt", "w", encoding="utf-8") as f:
+    f.write(result)
+
+print("YouTube AI content generated successfully!")
+Welcome to my YouTube channel 
+🔥 Title:
+Gareeb Ladka vs Rich Girl Emotional Story 💔
+
+🎬 Script:
+Ek chhota sa gaon tha jahan ek ladka...
+
+📝 Description:
+Ye story aapke dil ko tod degi aur jod bhi degi...
+
+#Hashtags:
+#emotional #love #story #hindistory #viral
+
+🖼 Thumbnail Idea:
+Boy crying in rain, rich girl walking away, dramatic lighting
+
+⏰ Best Upload Time:
+7:00 PM IST (High engagement)
 
 ## 🌐 Socials:
 [![YouTube](https://img.shields.io/badge/YouTube-%23FF0000.svg?logo=YouTube&logoColor=white)](https://youtube.com/@https://www.youtube.com/@FilmRevelationX1.50) 
